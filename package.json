@@ -12,6 +12,20 @@
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
-  }
+    "serve-favicon": "~2.3.0",
+    "nunjucks": "~2.5.2"
+  },
+  "description": "Hello, world!",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opportunity-Hack-2016-AZ/Team15.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opportunity-Hack-2016-AZ/Team15/issues"
+  },
+  "homepage": "https://github.com/Opportunity-Hack-2016-AZ/Team15#readme"
 }
