@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+  "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -13,13 +13,6 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "nunjucks": "~2.5.2",
-<<<<<<< HEAD
-=======
-    "passport-local": "^1.0.0",
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> James
     "serve-favicon": "~2.3.0"
   },
   "description": "Hello, world!",
