@@ -12,7 +12,10 @@
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "nunjucks": "^2.5.2",
+<<<<<<< HEAD
+    "nunjucks": "~2.5.2",
+    "passport-local": "^1.0.0",
+>>>>>>> origin/master
     "serve-favicon": "~2.3.0"
   },
   "description": "Hello, world!",
