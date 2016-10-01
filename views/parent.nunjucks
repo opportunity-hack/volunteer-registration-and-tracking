@@ -3,6 +3,7 @@
 <head>
     {% block head %}
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title">
     <title>{% block title %}{% endblock title %}</title>
     {% endblock head %}
 </head>
