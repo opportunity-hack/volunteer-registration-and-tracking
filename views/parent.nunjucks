@@ -4,11 +4,11 @@
     {% block head %}
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title">
-    <title>{% block title %}{% endblock title %}</title>
-    {% endblock head %}
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
 </head>
 <body>
     {% block content %}
-    {% endblock content %}
+    {% endblock %}
 </body>
 </html>
