@@ -1,0 +1,22 @@
+{
+  "name": "team15",
+  "version": "1.0.0",
+  "description": "Hello, world!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opportunity-Hack-2016-AZ/Team15.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opportunity-Hack-2016-AZ/Team15/issues"
+  },
+  "homepage": "https://github.com/Opportunity-Hack-2016-AZ/Team15#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
