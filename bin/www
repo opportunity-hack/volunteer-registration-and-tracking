@@ -5,11 +5,7 @@
  */
 
 var app = require('../app');
-<<<<<<< HEAD
 var debug = require('debug')('team15:server');
-=======
-var debug = require('debug')('Team15:server');
->>>>>>> 14467c9be89bf0ee2d60b0625be2a1578216dbf6
 var http = require('http');
 
 /**
