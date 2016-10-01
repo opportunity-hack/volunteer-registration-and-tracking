@@ -16,7 +16,10 @@
 <<<<<<< HEAD
 =======
     "passport-local": "^1.0.0",
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> James
     "serve-favicon": "~2.3.0"
   },
   "description": "Hello, world!",
