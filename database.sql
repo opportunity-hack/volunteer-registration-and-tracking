@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.13, for osx10.11 (x86_64)
 --
--- Host: localhost    Database: todos
+-- Host: localhost    Database: volunteermanagement
 -- ------------------------------------------------------
 -- Server version	5.7.13
 
@@ -16,85 +16,88 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Project`
+-- Table structure for table `DateTime`
 --
 
-DROP TABLE IF EXISTS `Project`;
+DROP TABLE IF EXISTS `DateTime`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Project` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
-  `user_id` int(10) NOT NULL,
-  `archived` char(5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_Project_User_idx` (`user_id`),
-  CONSTRAINT `FK_Project_User` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Project`
---
-
-LOCK TABLES `Project` WRITE;
-/*!40000 ALTER TABLE `Project` DISABLE KEYS */;
-INSERT INTO `Project` VALUES (1,'School',2,'0'),(4,'Home',1,'0'),(7,'School',4,'0'),(8,'Travel',4,'0'),(9,'school',1,'0');
-/*!40000 ALTER TABLE `Project` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Task`
---
-
-DROP TABLE IF EXISTS `Task`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Task` (
+CREATE TABLE `DateTime` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` text NOT NULL,
-  `project_id` int(11) NOT NULL,
-  `completed` char(5) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_Task_Project_idx` (`project_id`),
-  CONSTRAINT `FK_Task_Project` FOREIGN KEY (`project_id`) REFERENCES `Project` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `start_date_and_time` datetime NOT NULL,
+  `end_date_and_time` datetime NOT NULL,
+  `event_id` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Task`
+-- Dumping data for table `DateTime`
 --
 
-LOCK TABLES `Task` WRITE;
-/*!40000 ALTER TABLE `Task` DISABLE KEYS */;
-INSERT INTO `Task` VALUES (1,'Eat',1,'1'),(2,'sleep',1,'0'),(7,'do ser 321 h/w',9,'0');
-/*!40000 ALTER TABLE `Task` ENABLE KEYS */;
+LOCK TABLES `DateTime` WRITE;
+/*!40000 ALTER TABLE `DateTime` DISABLE KEYS */;
+/*!40000 ALTER TABLE `DateTime` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `User`
+-- Table structure for table `Event`
 --
 
-DROP TABLE IF EXISTS `User`;
+DROP TABLE IF EXISTS `Event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `User` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `fullName` text NOT NULL,
-  `email` text NOT NULL,
-  `password` varchar(45) NOT NULL,
+CREATE TABLE `Event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `volunteer_id` int(11) NOT NULL,
+  `date_and_time_id` datetime NOT NULL,
+  `location` text NOT NULL,
+  `description` text NOT NULL,
+  `title` text NOT NULL,
+  `minimum_level` int(11) NOT NULL,
+  `number_of_attendees` int(11) NOT NULL,
+  `training_event` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `User`
+-- Dumping data for table `Event`
 --
 
-LOCK TABLES `User` WRITE;
-/*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'Lilian','lili@asu.edu','dddd'),(2,'anisha','anisha@asu.edu','dddd'),(3,'David Okinyi','Okinyi31@gmail.com','dau'),(4,'jennifer','Jennifer.Rode@asu.edu','password');
-/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+LOCK TABLES `Event` WRITE;
+/*!40000 ALTER TABLE `Event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Event` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Volunteer`
+--
+
+DROP TABLE IF EXISTS `Volunteer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Volunteer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
+  `email` text NOT NULL,
+  `DoB` datetime NOT NULL,
+  `zipcode` int(11) NOT NULL,
+  `event_id` text NOT NULL,
+  `total_hours` int(11) NOT NULL,
+  `training_level` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Volunteer`
+--
+
+LOCK TABLES `Volunteer` WRITE;
+/*!40000 ALTER TABLE `Volunteer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Volunteer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -106,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-01 15:24:48
+-- Dump completed on 2016-10-01 16:02:41
