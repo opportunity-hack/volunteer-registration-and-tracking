@@ -1,5 +1,9 @@
-Lost Our Home Pet Rescue
+#Lost Our Home Pet Rescue
+##Volunteer and Event Management Databse
 
-Volunteer and Event Management Databse
-
-node.js, express.js, passport.js, nunjucks, mongodb
+Uses:
++node.js
++express.js
++passport.js
++nunjucks
++mongoose
