@@ -39,6 +39,10 @@ router.get('/ping', function(req, res){
 });
 
 router.get('/event/:eventID', function(req, res) {
-    res.render('event', { event : Account.find(req.params) });
+    res.render('event', { event : Event.find( { _id: req.params }) });
 });
+
+router.get('/user/:userID', function(req, res) {
+    res.render('user', { user : Account.find( { _id: req.params }) })
+})
 module.exports = router;
