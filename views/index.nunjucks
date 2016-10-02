@@ -1,5 +1,5 @@
 {% extends "parent.nunjucks" %}
 {% block title %} {{title}} {% endblock %}
 {% block content %}
-
+<p>{{user}}</p>
 {% endblock %}
