@@ -8,7 +8,7 @@ var Account = new Schema({
     username: String,
     zipcode: Number,
     dateOfBirth: Date,
-    events: Schema.Types.Mixed,
+    events: {type: Schema.Types.Mixed, default: null},
     hours: {type: Number, default: 0},
     trainingLevel: {type: Number, default: 0},
     checkedIn: {type: Boolean, default: false},
