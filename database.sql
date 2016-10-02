@@ -1,3 +1,20 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @rkknoche
+ Unwatch 5
+  Unstar 1
+ Fork 0 Opportunity-Hack-2016-AZ/Team15
+ Code  Issues 0  Pull requests 0  Projects 1  Wiki  Pulse  Graphs  Settings
+Tree: 3450c63f94 Find file Copy pathTeam15/database.sql
+0a98c58  an hour ago
+@lilianngweta lilianngweta Changed the database fields
+1 contributor
+RawBlameHistory
+113 lines (97 sloc)  3.47 KB
 -- MySQL dump 10.13  Distrib 5.7.13, for osx10.11 (x86_64)
 --
 -- Host: localhost    Database: volunteermanagement
@@ -110,3 +127,5 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-10-01 16:02:41
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
