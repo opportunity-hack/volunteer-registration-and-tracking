@@ -31,15 +31,12 @@ function getAttendedUsers(eventId, xcall){
 
     })
 }
-
 function getRegisteredUsers(event, xcall){
     Account.findOne({_id: eventId}, function(err, event, xcall) {
 
         xcall(event.registrants);
     })
 }
-
-
 function getRegisteredUsers(event, xcall){
     Account.findOne({_id: eventId}, function(err, event, xcall) {
 
