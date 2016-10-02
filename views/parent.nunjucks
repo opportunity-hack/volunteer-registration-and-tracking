@@ -22,7 +22,7 @@
         </nav> -->
         <!-- else -->
         {% if user %}
-            <h2><span id="greeting">Hello</span>, {{user.firstName}}</h2><a href="/logout">Logout</a>
+            <h2><span id="greeting">Hello</span> {{user.firstName}}</h2><a href="/logout">Logout</a>
         {% else %}
             <div class="container">
             <div class="col-sm-12">
