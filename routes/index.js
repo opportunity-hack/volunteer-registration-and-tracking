@@ -4,26 +4,87 @@ var Account = require('../models/account');
 var Event = require('../models/events');
 var router = express.Router();
 
+function getTotalHours(userID, xcall){
+    Account.findOne({
+        _id: userID
+    }, function(err, user, xcall) {
+        var hours = 0;
+        for (var event in user.events){
+            var obj = user.events[event];
+            hours += obj["timeOutActual"] - obj["timeInActual"];
+        }
+        xcall(hours);
+    });
+};
 
-router.get('/', function (req, res) {
-    res.render('index', { user : req.user });
+function getAttendedEvents(userId, xcall){
+    Account.findOne({_id: userId}, function(err, user, xcall) {
+        xcall(user.events);
+    })
+
+}
+
+function getAttendedUsers(eventId, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.attendees);
+<<<<<<< HEAD
+
+    })
+}
+
+function getRegisteredUsers(event, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.registrants);
+    })
+}
+=======
+>>>>>>> 755b1b9263433e529035112af585177634244b91
+
+    })
+}
+
+function getRegisteredUsers(event, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.registrants);
+    })
+}
+
+
+router.get('/', function(req, res) {
+    res.render('index', {
+        user: req.user
+    });
 });
 
 router.post('/register', function(req, res) {
     Account.register(
-        new Account({ firstName : req.body.firstName, lastName : req.body.lastName, username : req.body.email, zipcode : req.body.zipcode, dateOfBirth : req.body.dateOfBirth }), req.body.password, function(err, account) {
-        if (err) {
-            return res.render('index', {error:err});
-        }
+        new Account({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            username: req.body.email,
+            zipcode: req.body.zipcode,
+            dateOfBirth: req.body.dateOfBirth
+        }), req.body.password,
+        function(err, account) {
+            if (err) {
+                return res.render('index', {
+                    error: err
+                });
+            }
 
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
+            passport.authenticate('local')(req, res, function() {
+                res.redirect('/');
+            });
         });
-    });
 });
 
 router.get('/login', function(req, res) {
-    res.render('login', { user : req.user });
+    res.render('login', {
+        user: req.user
+    });
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
@@ -36,8 +97,6 @@ router.get('/logout', function(req, res) {
 });
 
 router.post('/createevent', function(req, res){
-    console.log("foo");
-    console.dir(req.body);
         var evt = new Event({
             eventName : req.body.eventName,
             registrants : [],
@@ -59,7 +118,10 @@ router.post('/createevent', function(req, res){
 
 });
 
-router.get('/ping', function(req, res){
+    
+
+
+router.get('/ping', function(req, res) {
     res.status(200).send("pong!");
 });
 router.get('/event/new', function(req, res) {
@@ -99,5 +161,22 @@ router.get('/event/:eventID', function(req, res) {
 
 router.get('/user/:userID', function(req, res) {
     res.render('user', {user: req.user})
-})
+    Event.find({
+        _id: req.params.id
+    }, function(err, eventID) {
+        res.render('event', {
+            event: eventID
+        });
+    });
+});
+
+router.get('/user/:id', function(req, res) {
+    Account.findOne({
+        _id: req.params.id
+    }, function(err, user) {
+        res.render('user', { account: user });
+    });
+});
+
+
 module.exports = router;
