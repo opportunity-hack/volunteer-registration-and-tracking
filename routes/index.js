@@ -63,6 +63,7 @@ router.post('/register', function(req, res) {
             dateOfBirth: req.body.dateOfBirth
         }), req.body.password,
         function(err, account) {
+            console.log(account);
             if (err) {
                 return res.render('index', {
                     error: err
