@@ -3,7 +3,15 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var Account = new Schema({
+    firstName: String,
+    lastName: String,
     username: String,
+    zipcode: Number,
+    dateOfBirth: Date,
+    events: [Number],
+    hours: {type: Number, default: 0},
+    trainingLevel: {type: Number, default: 0},
+    checkedIn: {type: Boolean, default: false},
     password: String
 });
 

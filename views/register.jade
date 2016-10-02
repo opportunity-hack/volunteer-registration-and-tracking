@@ -7,9 +7,17 @@ block content
     br
     form(role='form', action="/register",method="post", style='max-width: 300px;')
       .form-group
-          input.form-control(type='text', name="username", placeholder='Enter Username')
+          input.form-control(type='text', name="firstName", placeholder='First Name')
       .form-group
-        input.form-control(type='password', name="password", placeholder='Password')
+          input.form-control(type='text', name="lastName", placeholder='Last Name')
+      .form-group
+          input.form-control(type='email', name="email", placeholder='Email Address')
+      .form-group
+          input.form-control(type='date', name="dateOfBirth")
+      .form-group
+          input.form-control(type='number', name="zipcode", placeholder='Zipcode')
+      .form-group
+          input.form-control(type='password', name="password", placeholder='Password')
       button.btn.btn-default(type='submit') Submit
       &nbsp;
       a(href='/')
