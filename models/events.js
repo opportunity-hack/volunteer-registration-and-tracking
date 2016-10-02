@@ -4,14 +4,12 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var Event = new Schema({
     eventName: String,
-    volunteers: Array,
     eventDate: Date,
     location: String,
     description: String,
-    title: String,
     minLevel: Number,
-    numAttendees: Number,
-    training: Boolean
+    training: Boolean,
+    users: {type: Schema.Types.Mixed, default: null}
 });
 
 Account.plugin(passportLocalMongoose);
