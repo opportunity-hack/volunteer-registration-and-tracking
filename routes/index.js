@@ -31,6 +31,13 @@ function getAttendedUsers(eventId, xcall){
     })
 }
 
+function getRegisteredUsers(event, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.registrants);
+    })
+}
+
 
 router.get('/', function(req, res) {
     res.render('index', {
