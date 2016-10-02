@@ -13,23 +13,9 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "nunjucks": "~2.5.2",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     "passport-local": "^1.0.0",
->>>>>>> master
->>>>>>> parent of 3450c63... Merge branch 'James' into Rachel
-=======
     "passport-local": "^1.0.0",
->>>>>>> master
->>>>>>> parent of 3450c63... Merge branch 'James' into Rachel
-=======
     "passport-local": "^1.0.0",
->>>>>>> master
->>>>>>> parent of 3450c63... Merge branch 'James' into Rachel
     "serve-favicon": "~2.3.0"
   },
   "description": "Hello, world!",
