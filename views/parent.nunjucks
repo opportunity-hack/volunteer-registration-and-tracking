@@ -35,6 +35,9 @@
                        <h2>Welcome to the new volunteer portal.</h2>
                    </div>
                </div>
+               {% if error% }
+               <h3>{{error}}</h3>
+               {% endif %}
                 <div class="row">
                     <div class="col-sm-12">
                         <a href="#" class="btn btn-primary btn-lg" onclick="login()">Login</a>
@@ -61,6 +64,7 @@
                                     <button class="btn btn-success" type="submit">Log in</button>
                                 </span>
                             </div>
+                            <a href="#" class="btn btn-danger" onclick="reset('loginform')">Cancel</a>
                         </div>
                     </form>
                 </div>
@@ -75,7 +79,7 @@
                         </div>
                         <div class="row ">
                             <div class="col-sm-10 col-md-8">
-                                <input type="text" name="username" class="form-control" placeholder="Email Address">
+                                <input type="text" name="email" class="form-control" placeholder="Email Address">
                             </div>
                         </div>
                         <div class="row topbuffer">
@@ -107,6 +111,7 @@
                            <div class="col-sm-5">
                                <button type="submit" class="btn btn-success">Submit</button>
                            </div>
+                           <a href="#" class="btn btn-danger" onclick="reset('signupform')">Cancel</a>
                             </div>                    </form>
                 </div>
             </div>
@@ -140,6 +145,12 @@
             var hide = document.getElementById("buttons");
             hide.style.display="none";
             var show = document.getElementById("signupform");
+            show.style.display="block";
+        }
+        function reset(idid){
+            var show = document.getElementById("buttons");
+            var show = document.getElementById(idid);
+            hide.style.display="none";
             show.style.display="block";
         }
         </script>
