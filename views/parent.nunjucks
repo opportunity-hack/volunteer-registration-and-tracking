@@ -22,11 +22,11 @@
         </nav> -->
         <!-- else -->
         {% if user %}
-            <a href="/logout">Logout</a>
+            <h2><span id="greeting">Hello</span>, {{user.firstName}}</h2><a href="/logout">Logout</a>
         {% else %}
             <div class="container">
             <div class="col-sm-12">
-                <h1 id="greeting">Hello!</h1>
+                <h1><span id="greeting"></span>.</h1>
             </div>
             <br />
             <div id="buttons">
@@ -118,22 +118,22 @@
         var time = d.getHours();
         var h = document.getElementById('greeting');
         if (time < 4) {
-            h.innerHTML = "You're up late. Welcome.";
+            h.innerHTML = "You're up late";
         } else if (time >=4 && time < 6){
-            h.innerHTML = "You're up early. Welcome.";
+            h.innerHTML = "You're up early";
         }
         else if (time >= 6 && time < 12){
-            h.innerHTML = "Good morning.";
+            h.innerHTML = "Good morning";
         }else if (time >= 12 && time < 18) {
-            h.innerHTML = "Good afternoon.";
+            h.innerHTML = "Good afternoon";
         } else if (time >= 18) {
-            h.innerHTML = "Good evening.";
+            h.innerHTML = "Good evening";
         }
         function login(){
             var hide = document.getElementById("buttons");
             hide.style.display="none";
             var show = document.getElementById("loginform");
-            show.style.display="block";  
+            show.style.display="block";
         }
         function signup(){
             var hide = document.getElementById("buttons");

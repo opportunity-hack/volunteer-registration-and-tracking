@@ -1,20 +1,5 @@
 {% extends "parent.nunjucks" %}
 {% block title %} {{title}} {% endblock %}
 {% block content %}
-<h2>Object items</h2>
-<p>
-{{text.item1}}
-</p>
-<p>
-{{text.item2}}
-</p>
 
-<h2>Array Items</h2>
-<ul>
-{% for item in array %}
-<li>{{item}}</li>
-{% else %}
-<li>This array is empty</li>
-{% endfor %}
-</ul>
 {% endblock %}

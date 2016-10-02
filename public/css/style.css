@@ -3,7 +3,7 @@ body{
 }
 #mast {
 /*    position: fixed;*/
-    background: #00529c url('../../prototype/logo.png');
+    background: #00529c url('/logo.png');
     background-size: auto 300px;
     width: 100%;
 /*    min-height: 100vh;*/
@@ -11,6 +11,7 @@ body{
     padding: 3em;
     background-repeat:no-repeat;
     background-position: 90% center;
+    vertical-align: top;
 }
 #mast a{
 
