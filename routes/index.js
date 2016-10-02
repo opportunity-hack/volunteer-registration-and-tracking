@@ -3,6 +3,40 @@ var passport = require('passport');
 var Account = require('../models/account');
 var router = express.Router();
 
+function getTotalHours(userID, xcall){
+    Account.findOne({
+        _id: userID
+    }, function(err, user, xcall) {
+        var hours = 0;
+        for (var event in user.events){
+            var obj = user.events[event];
+            hours += obj["timeOutActual"] - obj["timeInActual"];
+        }
+        xcall(hours);
+    });
+};
+
+function getAttendedEvents(userId, xcall){
+    Account.findOne({_id: userId}, function(err, user, xcall) {
+        xcall(user.events);
+    })
+
+}
+
+function getAttendedUsers(eventId, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.attendees);
+
+    })
+}
+
+function getRegisteredUsers(event, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.registrants);
+    })
+}
 
 router.get('/', function (req, res) {
     res.render('index', { user : req.user });
