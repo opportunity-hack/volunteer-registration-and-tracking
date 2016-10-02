@@ -1,6 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var Account = require('../models/account');
+var Event = require('../models/events');
 var router = express.Router();
 
 
@@ -35,7 +36,8 @@ router.get('/logout', function(req, res) {
 });
 
 router.post('/createevent', function(req, res){
-    // if(user.isAdmin){
+    console.log("foo");
+    console.dir(req.body);
         var evt = new Event({
             eventName : req.body.eventName,
             registrants : [],
@@ -48,13 +50,12 @@ router.post('/createevent', function(req, res){
             training : req.body.training
 
         });
-        console.dir(evt);
+        console.log(evt);
         evt.save(function(err, evt) {
             if (err) return console.error(err);
             console.dir(evt);
             res.status(200).send("event created!");
         });
-    // }
 
 });
 
@@ -66,7 +67,7 @@ router.get('/event/new', function(req, res) {
 });
 router.get('/event', function(req, res) {
     console.log("boo");
-    event.find(function(err, events){
+    Event.find(function(err, events){
         if(err){console.dir(err);}
         console.dir(events);
     });
