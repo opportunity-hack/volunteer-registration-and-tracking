@@ -92,7 +92,8 @@ router.get('/event/:eventID', function(req, res) {
     Event.find({ id_: req.params.id }, function(err, events){
         if(err){console.dir(err);}
         console.log(events);
-        res.render('event', {event : events, user: req.user});
+        console.log(events[0].eventName);
+        res.render('event', {event : events[0], user: req.user});
     });
 });
 

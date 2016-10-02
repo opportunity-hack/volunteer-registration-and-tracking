@@ -7,22 +7,9 @@
 {% endif %}
 
 {% if event %}
-{{event}}
-{{event.eventName}}
-<table>
-    <tr>
-        <td>Event name</td>
-        <td>{{event.eventName}}</td>
-    </tr>
-    <tr>
-        <td>Dates</td>
-        <td>asdf</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
+<h1>This renders event</h1>{{event}}<br />
+<h1>This renders event.eventName</h1> {{event["eventName"]}}<br />
+
 {% else %}
 {% if user.isAdmin %}
 <h1>no event, let's make one.</h1>
