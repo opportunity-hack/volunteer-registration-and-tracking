@@ -1,7 +1,5 @@
-<h1>Well Fuck</h1>
-<h2>
-    Error {{error.status}}
-</h2>
-<p>
-    {{message}}
-</p>
+{% extends "parent.nunjucks" %}
+{% block title %} {{error.status}} {% endblock %}
+{% block content %}
+<p>{{message}}</p>
+{% endblock %}
