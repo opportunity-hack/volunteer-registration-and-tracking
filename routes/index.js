@@ -16,11 +16,19 @@ function getTotalHours(userID, xcall){
     });
 };
 
-function getAttendedEvents (userId, xcall){
+function getAttendedEvents(userId, xcall){
     Account.findOne({_id: userId}, function(err, user, xcall) {
         xcall(user.events);
     })
 
+}
+
+function getAttendedUsers(eventId, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.attendees);
+
+    })
 }
 
 
