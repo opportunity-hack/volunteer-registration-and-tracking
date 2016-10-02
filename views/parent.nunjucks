@@ -3,11 +3,20 @@
 <head>
     {% block head %}
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title">
+    <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--FIX THE FONTS EVENTUALLY-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
 <body>
+    <script>
+        $(document).ready(function(){
+           window.alert("test"); 
+        });
+    </script>
     {% block content %}
     {% endblock %}
 </body>
