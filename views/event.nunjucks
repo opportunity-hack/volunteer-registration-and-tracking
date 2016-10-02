@@ -3,21 +3,26 @@
 {% block content %}
 {% if user %}
 <p>{{user}}</p>
+<p>{{user.firstName}}</p>
 {% endif %}
 
 {% if event %}
-<tr>
-    <td>Event name</td>
-    <td>{{event.eventName}}</td>
-</tr>
-<tr>
-    <td>Dates</td>
-    <td>asdf</td>
-</tr>
-<tr>
-    <td></td>
-    <td></td>
-</tr>
+{{event}}
+{{event.eventName}}
+<table>
+    <tr>
+        <td>Event name</td>
+        <td>{{event.eventName}}</td>
+    </tr>
+    <tr>
+        <td>Dates</td>
+        <td>asdf</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 {% else %}
 <h1>no event, let's make one.</h1>
 
