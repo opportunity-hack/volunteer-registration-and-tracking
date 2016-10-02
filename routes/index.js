@@ -27,6 +27,19 @@ function getAttendedUsers(eventId, xcall){
     Account.findOne({_id: eventId}, function(err, event, xcall) {
 
         xcall(event.attendees);
+<<<<<<< HEAD
+
+    })
+}
+
+function getRegisteredUsers(event, xcall){
+    Account.findOne({_id: eventId}, function(err, event, xcall) {
+
+        xcall(event.registrants);
+    })
+}
+=======
+>>>>>>> 755b1b9263433e529035112af585177634244b91
 
     })
 }
@@ -38,25 +51,39 @@ function getRegisteredUsers(event, xcall){
     })
 }
 
-router.get('/', function (req, res) {
-    res.render('index', { user : req.user });
+
+router.get('/', function(req, res) {
+    res.render('index', {
+        user: req.user
+    });
 });
 
 router.post('/register', function(req, res) {
     Account.register(
-        new Account({ firstName : req.body.firstName, lastName : req.body.lastName, username : req.body.email, zipcode : req.body.zipcode, dateOfBirth : req.body.dateOfBirth }), req.body.password, function(err, account) {
-        if (err) {
-            return res.render('index', {error:err});
-        }
+        new Account({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            username: req.body.email,
+            zipcode: req.body.zipcode,
+            dateOfBirth: req.body.dateOfBirth
+        }), req.body.password,
+        function(err, account) {
+            if (err) {
+                return res.render('index', {
+                    error: err
+                });
+            }
 
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
+            passport.authenticate('local')(req, res, function() {
+                res.redirect('/');
+            });
         });
-    });
 });
 
 router.get('/login', function(req, res) {
-    res.render('login', { user : req.user });
+    res.render('login', {
+        user: req.user
+    });
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
@@ -68,15 +95,46 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-router.get('/ping', function(req, res){
+router.post('/createevent', function(req, res){
+    if(user.isAdmin){
+        new Event({
+            eventName : req.body.eventName,
+            registrants : [],
+            attendees : [],
+            dates : [{startDate : req.body.startDate, endDate : req.body.endDate}],
+            location : req.body.location,
+            description : req.body.description,
+            title : req.body.title,
+            minLevel : req.body.minLevel,
+            numAttendees : 0,
+            training : req.body.training
+
+        })
+    }
+
+});
+
+router.get('/ping', function(req, res) {
     res.status(200).send("pong!");
 });
 
 router.get('/event/:eventID', function(req, res) {
-    res.render('event', { event : Event.find( { _id: req.params }) });
+    Event.find({
+        _id: req.params.id
+    }, function(err, eventID) {
+        res.render('event', {
+            event: eventID
+        });
+    });
 });
 
-router.get('/user/:userID', function(req, res) {
-    res.render('user', { user : Account.find( { _id: req.params }) })
+router.get('/user/:id', function(req, res) {
+    Account.findOne({
+        _id: req.params.id
+    }, function(err, user) {
+        res.render('user', { account: user });
+    });
 })
+
+
 module.exports = router;
