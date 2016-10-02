@@ -83,8 +83,9 @@
                                 <input type="password" name="password" class="form-control" placeholder="Password">
                             </div>
                             <div class="col-sm-5 col-md-4">
-                                <input type="password" name="password" class="form-control" placeholder="Retype Password">
+                                <input type="password" class="form-control" placeholder="Retype Password">
                             </div>
+                            <!--todo: error check-->
                         </div>
                         <div class="row topbuffer">
                             <div class="col-sm-5 col-md-4">
