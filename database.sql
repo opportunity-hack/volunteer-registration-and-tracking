@@ -43,8 +43,15 @@ CREATE TABLE `DateTime` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `start_date_and_time` datetime NOT NULL,
   `end_date_and_time` datetime NOT NULL,
+<<<<<<< HEAD
   `event_id` text NOT NULL,
   PRIMARY KEY (`id`)
+=======
+  `event_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_DateTime_Event_idx` (`event_id`),
+  CONSTRAINT `FK_DateTime_Event` FOREIGN KEY (`event_id`) REFERENCES `Event` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+>>>>>>> master
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,14 +74,26 @@ DROP TABLE IF EXISTS `Event`;
 CREATE TABLE `Event` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `volunteer_id` int(11) NOT NULL,
+<<<<<<< HEAD
   `date_and_time_id` datetime NOT NULL,
+=======
+  `date_and_time_id` int(11) NOT NULL,
+>>>>>>> master
   `location` text NOT NULL,
   `description` text NOT NULL,
   `title` text NOT NULL,
   `minimum_level` int(11) NOT NULL,
   `number_of_attendees` int(11) NOT NULL,
   `training_event` tinyint(4) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (`id`)
+=======
+  PRIMARY KEY (`id`),
+  KEY `FK_Event_Volunteer_idx` (`volunteer_id`),
+  KEY `FK_Event_DateTime_idx` (`date_and_time_id`),
+  CONSTRAINT `FK_Event_DateTime` FOREIGN KEY (`date_and_time_id`) REFERENCES `DateTime` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_Event_Volunteer` FOREIGN KEY (`volunteer_id`) REFERENCES `Volunteer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+>>>>>>> master
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -101,10 +120,19 @@ CREATE TABLE `Volunteer` (
   `email` text NOT NULL,
   `DoB` datetime NOT NULL,
   `zipcode` int(11) NOT NULL,
+<<<<<<< HEAD
   `event_id` text NOT NULL,
   `total_hours` int(11) NOT NULL,
   `training_level` int(11) NOT NULL,
   PRIMARY KEY (`id`)
+=======
+  `event_id` int(11) NOT NULL,
+  `total_hours` int(11) NOT NULL,
+  `training_level` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_Volunteer_Event_idx` (`event_id`),
+  CONSTRAINT `FK_Volunteer_Event` FOREIGN KEY (`event_id`) REFERENCES `Event` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+>>>>>>> master
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -126,6 +154,10 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2016-10-01 16:02:41
 Contact GitHub API Training Shop Blog About
 © 2016 GitHub, Inc. Terms Privacy Security Status Help
+=======
+-- Dump completed on 2016-10-01 16:39:18
+>>>>>>> master
