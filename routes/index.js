@@ -39,10 +39,19 @@ router.get('/ping', function(req, res){
 });
 
 router.get('/event/:eventID', function(req, res) {
-    res.render('event', { event : Event.find( { _id: req.params }) });
+    Event.find( { _id: req.params } , function(err, eventID){
+        res.render('event', {event : eventID });
+    });
 });
 
 router.get('/user/:userID', function(req, res) {
-    res.render('user', { user : Account.find( { _id: req.params }) })
+    Account.find( { _id: req.params } , function(err, userID){
+        if (!err) {
+            console.log(userID.firstName);
+            res.render('user', { user : userID });
+        } else {
+            console.log(err);
+        }
+    });
 })
 module.exports = router;
