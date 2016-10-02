@@ -24,74 +24,158 @@
         <div class="container">
             <div class="col-sm-12">
                 <h1 id="greeting">Hello!</h1>
-                <h2>Welcome to the new volunteer portal.</h2>
             </div>
             <br />
-            <div class="col-sm-12">
-                <a href="#" class="btn btn-primary btn-lg">Login</a>
-                <a href="#" class="btn btn-success btn-lg">Sign Up</a>
-                <a href="#" class="btn btn-default btn-lg">Learn More</a>
+            <div id="buttons">
+               <div class="row">
+                   <div class="col-sm-12">
+                       <h2>Welcome to the new volunteer portal.</h2>
+                   </div>
+               </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="#" class="btn btn-primary btn-lg" onclick="login()">Login</a>
+                        <a href="#" class="btn btn-success btn-lg" onclick="signup()">Sign Up</a>
+                        <a href="#" class="btn btn-default btn-lg">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row topbuffer" id="loginform" style="display:none">
+                <div class="col-sm-10 col-md-8">
+                    <form action="/login" , method="post">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h3>Log in now</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-md-4">
+                                <input type="text" name="username" class="form-control" placeholder="Email Address">
+                            </div>
+                            <div class="input-group col-sm-5 col-md-4">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="submit">Log in</button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="signupform" style="display:none">
+                <div class="col-sm-10 col-md-8">
+                    <form action="/register" , method="post">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <h3>Sign up now</h3>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-10 col-md-8">
+                                <input type="text" name="username" class="form-control" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="row topbuffer">
+                            <div class="col-sm-5 col-md-4">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="col-sm-5 col-md-4">
+                                <input type="password" name="password" class="form-control" placeholder="Retype Password">
+                            </div>
+                        </div>
+                        <div class="row topbuffer">
+                            <div class="col-sm-5 col-md-4">
+                                <input type="text" name="firstName" class="form-control" placeholder="First Name">
+                            </div>
+                            <div class="col-sm-5 col-md-4">
+                                <input type="text" name="lastName" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="row topbuffer">
+                            <div class="col-sm-5 col-md-4">
+                                <input label="dob" type="date" name="dateOfBirth" class="form-control" placeholder="Date of Birth">
+                            </div>
+                            <div class="col-sm-5 col-md-4">
+                                <input type="text" name="zipcode" class="form-control" placeholder="Zip Code">
+                            </div>
+                        </div>
+<div class="row topbuffer">
+                           <div class="col-sm-5">
+                               <button type="submit" class="btn btn-success">Submit</button>
+                           </div>
+                            </div>                    </form>
+                </div>
             </div>
 
         </div>
     </div>
     <div class="container cardstack">
         <div class="col-sm-12">
-                <h2>These events are coming up:</h2>
-            </div>
-            <div class="row eventcards">
-                <div class="card col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Pooping on the beach</h3>
-                            <h4>Event Date</h4>
-                            <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
-                            <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Pooping on the beach</h3>
-                            <h4>Event Date</h4>
-                            <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
-                            <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
-                        </div>
-                    </div>
-                </div><div class="card col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Pooping on the beach</h3>
-                            <h4>Event Date</h4>
-                            <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
-                            <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
-                        </div>
+            <h2>These events are coming up:</h2>
+        </div>
+        <div class="row eventcards">
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Pooping on the beach</h3>
+                        <h4>Event Date</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
                     </div>
                 </div>
             </div>
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Pooping on the beach</h3>
+                        <h4>Event Date</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Pooping on the beach</h3>
+                        <h4>Event Date</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
     <script>
-
-    var d = new Date();
-    var time = d.getHours();
+        var d = new Date();
+        var time = d.getHours();
         var h = document.getElementById('greeting');
-    if (time < 12) 
-      {
-      h.innerHTML="Good morning.";
-      }
-     else if (time >= 12 && time < 18) 
-      {
-      h.innerHTML="Good afternoon.";
-      }
-    else if (time >= 18) 
-      {
-      h.innerHTML="Good evening.";
-      }
-
-        
+        if (time < 4) {
+            h.innerHTML = "You're up late. Welcome.";
+        } else if (time >=4 && time < 6){
+            h.innerHTML = "You're up early. Welcome.";
+        }
+        else if (time >= 6 && time < 12){
+            h.innerHTML = "Good morning.";
+        }else if (time >= 12 && time < 18) {
+            h.innerHTML = "Good afternoon.";
+        } else if (time >= 18) {
+            h.innerHTML = "Good evening.";
+        }
+        function login(){
+            var hide = document.getElementById("buttons");
+            hide.style.display="none";
+            var show = document.getElementById("loginform");
+            show.style.display="block";  
+        }
+        function signup(){
+            var hide = document.getElementById("buttons");
+            hide.style.display="none";
+            var show = document.getElementById("signupform");
+            show.style.display="block";
+        }
     </script>
 
 </body>

@@ -33,3 +33,7 @@ h1 {
 .cardstack {
 /*    margin-top:20px;*/
 }
+
+.topbuffer {
+    margin-top:12px;
+}
