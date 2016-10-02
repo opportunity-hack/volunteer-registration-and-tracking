@@ -8,10 +8,6 @@ router.get('/', function (req, res) {
     res.render('index', { user : req.user });
 });
 
-router.get('/register', function(req, res) {
-        res.render('register', { });
-});
-
 router.post('/register', function(req, res) {
     Account.register(
         new Account({ firstName : req.body.firstName, lastName : req.body.lastName, username : req.body.email, zipcode : req.body.zipcode, dateOfBirth : req.body.dateOfBirth }), req.body.password, function(err, account) {
@@ -42,4 +38,7 @@ router.get('/ping', function(req, res){
     res.status(200).send("pong!");
 });
 
+router.get('/event/:eventID', function(req, res) {
+    res.render('event', { event : Account.find(req.params) });
+});
 module.exports = router;

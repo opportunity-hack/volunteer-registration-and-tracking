@@ -1,8 +1,8 @@
-ar mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
-var event = new Schema({
+var Event = new Schema({
     eventName: String,
     volunteers: Array,
     eventDate: Date,
@@ -17,6 +17,3 @@ var event = new Schema({
 Account.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('Event', Event);
-
-
-};
