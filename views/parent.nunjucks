@@ -35,7 +35,7 @@
                        <h2>Welcome to the new volunteer portal.</h2>
                    </div>
                </div>
-               {% if error% }
+               {% if error %}
                <h3>{{error}}</h3>
                {% endif %}
                 <div class="row">
