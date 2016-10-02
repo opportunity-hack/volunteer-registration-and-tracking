@@ -8,10 +8,11 @@ var Account = new Schema({
     username: String,
     zipcode: Number,
     dateOfBirth: Date,
-    events: [Number],
+    events: Schema.Types.Mixed,
     hours: {type: Number, default: 0},
     trainingLevel: {type: Number, default: 0},
     checkedIn: {type: Boolean, default: false},
+    isAdmin: {type: Boolean, default: false},
     password: String
 });
 
