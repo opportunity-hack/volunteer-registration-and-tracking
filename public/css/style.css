@@ -1,0 +1,40 @@
+body{
+    margin: 0px;
+}
+#mast {
+/*    position: fixed;*/
+    background: #00529c url('/logo.png');
+    background-size: auto 300px;
+    width: 100%;
+/*    min-height: 100vh;*/
+    color: white;
+    padding: 3em;
+    background-repeat:no-repeat;
+    background-position: 90% center;
+    vertical-align: top;
+}
+#mast a{
+
+}
+#mast .container {
+/*    margin-top:8vh;*/
+}
+h1 {
+    font-size: 7em;
+}
+
+.card{
+/*    background: #FFFFFF;*/
+/*    border-radius: 15px;*/
+/*    height: 200px;*/
+/*    padding: 15px;*/
+    color: black;
+}
+
+.cardstack {
+/*    margin-top:20px;*/
+}
+
+.topbuffer {
+    margin-top:12px;
+}

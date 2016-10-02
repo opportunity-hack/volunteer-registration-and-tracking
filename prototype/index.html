@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <!--FIX THE FONTS EVENTUALLY-->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <title>{% block title %}{% endblock %}</title>
-    {% endblock %}
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <!--FIX THE links -->
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <title>Index</title>
 </head>
+
 <body>
-    {% block mast %}
-        <div class="col-md-12" id="mast">
-<!--         if logged in -->
+
+    <div class="col-md-12" id="mast">
+        <!-- if logged in -->
         <!-- <nav style="background:#EE00EE" class="container">
             <div class="col-md-2">Name of Website</div>
             <div class="col-md-6 col-md-offset-4">Nav and buttons</div>
         </nav> -->
         <!-- else -->
-        {% if user %}
-            <h2><span id="greeting">Hello</span>, {{user.firstName}}</h2><a href="/logout">Logout</a>
-        {% else %}
-            <div class="container">
+        <div class="container">
             <div class="col-sm-12">
-                <h1><span id="greeting"></span>.</h1>
+                <h1 id="greeting">Hello!</h1>
             </div>
             <br />
             <div id="buttons">
@@ -111,29 +108,67 @@
             </div>
 
         </div>
-        {% endif %}
+    </div>
+    <div class="container cardstack">
+        <div class="col-sm-12">
+            <h2>These events are coming up:</h2>
         </div>
-        <script>
-            var d = new Date();
+        <div class="row eventcards">
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Pooping on the beach</h3>
+                        <h4>Event Date</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Pooping on the beach</h3>
+                        <h4>Event Date</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Pooping on the beach</h3>
+                        <h4>Event Date</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="#" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var d = new Date();
         var time = d.getHours();
         var h = document.getElementById('greeting');
         if (time < 4) {
-            h.innerHTML = "You're up late";
+            h.innerHTML = "You're up late. Welcome.";
         } else if (time >=4 && time < 6){
-            h.innerHTML = "You're up early";
+            h.innerHTML = "You're up early. Welcome.";
         }
         else if (time >= 6 && time < 12){
-            h.innerHTML = "Good morning";
+            h.innerHTML = "Good morning.";
         }else if (time >= 12 && time < 18) {
-            h.innerHTML = "Good afternoon";
+            h.innerHTML = "Good afternoon.";
         } else if (time >= 18) {
-            h.innerHTML = "Good evening";
+            h.innerHTML = "Good evening.";
         }
         function login(){
             var hide = document.getElementById("buttons");
             hide.style.display="none";
             var show = document.getElementById("loginform");
-            show.style.display="block";
+            show.style.display="block";  
         }
         function signup(){
             var hide = document.getElementById("buttons");
@@ -141,14 +176,8 @@
             var show = document.getElementById("signupform");
             show.style.display="block";
         }
-        </script>
-    {% endblock mast %}
-    <script>
-        $(document).ready(function(){
-//           window.alert("test");
-        });
     </script>
-    {% block content %}
-    {% endblock %}
+
 </body>
+
 </html>
