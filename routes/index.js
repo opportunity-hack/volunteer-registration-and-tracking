@@ -34,6 +34,25 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
+router.post('/createevent', function(req, res){
+    // if(user.isAdmin){
+        new Event({
+            eventName : req.body.eventName,
+            registrants : [],
+            attendees : [],
+            dates : [{startDate : req.body.startDate, endDate : req.body.endDate}],
+            location : req.body.location,
+            description : req.body.description,
+            title : req.body.title,
+            minLevel : req.body.minLevel,
+            numAttendees : 0,
+            training : req.body.training
+
+        })
+    // }
+
+});
+
 router.get('/ping', function(req, res){
     res.status(200).send("pong!");
 });
