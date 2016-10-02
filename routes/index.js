@@ -28,7 +28,6 @@ function getAttendedUsers(eventId, xcall){
     Account.findOne({_id: eventId}, function(err, event, xcall) {
 
         xcall(event.attendees);
-<<<<<<< HEAD
 
     })
 }
@@ -39,11 +38,7 @@ function getRegisteredUsers(event, xcall){
         xcall(event.registrants);
     })
 }
-=======
->>>>>>> 755b1b9263433e529035112af585177634244b91
 
-    })
-}
 
 function getRegisteredUsers(event, xcall){
     Account.findOne({_id: eventId}, function(err, event, xcall) {
@@ -54,8 +49,10 @@ function getRegisteredUsers(event, xcall){
 
 
 router.get('/', function(req, res) {
-    res.render('index', {
-        user: req.user
+    console.log("boo");
+    Event.find(function(err, events){
+        if(err){console.dir(err);}
+        res.render('index',{user:req.user,events:events,});
     });
 });
 
@@ -118,7 +115,7 @@ router.post('/createevent', function(req, res){
 
 });
 
-    
+
 
 
 router.get('/ping', function(req, res) {
@@ -132,7 +129,7 @@ router.get('/event', function(req, res) {
     Event.find(function(err, events){
         if(err){console.dir(err);}
         console.dir(events);
-        res.status(200).send(events);
+        res.render('event',{user:req.user,events:events,});
     });
 });
 router.get('/makechuckadmin', function(req, res){
@@ -150,12 +147,13 @@ router.get('/makechuckadmin', function(req, res){
 router.get('/event/:eventID/modify', function(req, res) {
     res.render('event', {user: req.user});
 });
+
 router.get('/event/:eventID', function(req, res) {
-    Event.find({ id_: req.params.id }, function(err, events){
+    Event.findOne({ id_: req.params.id }, function(err, events){
         if(err){console.dir(err);}
         console.log(events);
-        console.log(events[0].eventName);
-        res.render('event', {event : events[0], user: req.user});
+        console.log(events.eventName);
+        res.render('event', {event : events, user: req.user});
     });
 });
 

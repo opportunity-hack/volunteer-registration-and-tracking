@@ -2,7 +2,71 @@
 {% block title %} {{title}} {% endblock %}
 {% block content %}
 {% if user %}
-<p>{{user}}</p>
-<a href="/event/new">/event/new</a>
-{% endif %}
+
+<div class="container cardstack">
+    <div class="col-sm-12">
+        <h1>You've worked <em>4.3</em> hours this week. </h1><a href="#">View your work history. >></a><p>There will be a graph here evntually lol</p>
+    </div>
+        <div class="col-sm-12">
+            <h2>You signed up for these upcoming events:</h2>
+        </div>
+        <div class="row eventcards">
+           <!-- -->
+           {% for event in events %}
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>{{ event.eventName }}</h3>
+                        <h4>{{ event.dates[0].startDate }}</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="/event/{event._id}" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- -->
+
+        </div>
+        </div>
+        <div class="container cardstack">
+        <div class="col-sm-12">
+            <h2>Got some free time? We think you'll like:</h2>
+        </div>
+        <div class="row eventcards">
+            {% for event in events %}
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>{{ event.eventName }}</h3>
+                        <h4>{{ event.dates[0].startDate }}</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="/event/{event._id}" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+{% else %}
+    <div class="container cardstack">
+        <div class="col-sm-12">
+            <h2>These events are coming up:</h2>
+        </div>
+        <div class="row eventcards">
+            {% for event in events %}
+            <div class="card col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>{{ event.eventName }}</h3>
+                        <h4>{{ event.dates[0].startDate }}</h4>
+                        <p>Some event description, written in flowery prose; in short, the epitomy of style</p>
+                        <p><a href="/event/{event._id}" class="btn btn-primary" role="button">More Details</a> <a href="#" class="btn btn-success" role="button">Sign me up</a></p>
+                    </div>
+                </div>
+            </div>
+             {% endfor %}
+        </div>
+    </div>
+            </div>
+        {% endif %}
 {% endblock %}
