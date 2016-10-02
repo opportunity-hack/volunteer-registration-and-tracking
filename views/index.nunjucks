@@ -3,5 +3,6 @@
 {% block content %}
 {% if user %}
 <p>{{user}}</p>
+<a href="/event/new">/event/new</a>
 {% endif %}
 {% endblock %}

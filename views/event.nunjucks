@@ -19,6 +19,7 @@
     <td></td>
 </tr>
 {% else %}
+{% if user.isAdmin %}
 <h1>no event, let's make one.</h1>
 
 <form action="/createevent" method="post">
@@ -49,5 +50,6 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
+{% endif %}
 {% endif %}
 {% endblock content %}

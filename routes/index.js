@@ -54,7 +54,7 @@ router.post('/createevent', function(req, res){
         evt.save(function(err, evt) {
             if (err) return console.error(err);
             console.dir(evt);
-            res.status(200).send("event created!");
+            res.render('index',{error:"event created!"});
         });
 
 });
@@ -63,14 +63,27 @@ router.get('/ping', function(req, res){
     res.status(200).send("pong!");
 });
 router.get('/event/new', function(req, res) {
-    res.render('event', {test:"hello"});
+    res.render('event', {test:"hello", user : req.user});
 });
 router.get('/event', function(req, res) {
     console.log("boo");
     Event.find(function(err, events){
         if(err){console.dir(err);}
         console.dir(events);
+        res.status(200).send(events);
     });
+});
+router.get('/makechuckadmin', function(req, res){
+    Account.findOne({username:"chuck@chuckdries.com"}, function(error, chuck){
+        chuck.isAdmin = true;
+        chuck.save(function(err){
+            if(err){
+                console.log(err);
+            } else {
+                res.status(200).send("success!");
+            }
+        })
+    })
 });
 router.get('/event/:eventID/modify', function(req, res) {
     res.render('event', {});
