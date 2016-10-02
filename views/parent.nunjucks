@@ -149,7 +149,7 @@
         }
         function reset(idid){
             var show = document.getElementById("buttons");
-            var show = document.getElementById(idid);
+            var hide = document.getElementById(idid);
             hide.style.display="none";
             show.style.display="block";
         }
