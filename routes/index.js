@@ -3,6 +3,18 @@ var passport = require('passport');
 var Account = require('../models/account');
 var router = express.Router();
 
+function getTotalHours(userID, xcall){
+    Account.findOne({
+        _id: userID
+    }, function(err, xcall) {
+        var hours = 0;
+        for (var event in user.events){
+            var obj = user.events[event];
+            hours += obj["timeOutActual"] - obj["timeInActual"];
+        }
+        xcall(hours);
+    });
+};
 
 router.get('/', function(req, res) {
     res.render('index', {
