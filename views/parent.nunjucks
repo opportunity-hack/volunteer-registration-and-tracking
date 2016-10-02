@@ -3,8 +3,9 @@
 <head>
     {% block head %}
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/style.css" >
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
     <!--FIX THE FONTS EVENTUALLY-->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -12,6 +13,29 @@
     {% endblock %}
 </head>
 <body>
+   {% block mast %}
+    <div class="col-md-12" id="mast">
+        <!-- if logged in -->
+        <!-- <nav style="background:#EE00EE" class="container">
+            <div class="col-md-2">Name of Website</div>
+            <div class="col-md-6 col-md-offset-4">Nav and buttons</div>
+        </nav> -->
+        <!-- else -->
+        <div class="container">
+            <div class="col-sm-12">
+                <h1 id="greeting">Hello!</h1>
+                <h2>Welcome to the new volunteer portal.</h2>
+            </div>
+            <br />
+            <div class="col-sm-12">
+                <a href="#" class="btn btn-primary btn-lg">Login</a>
+                <a href="#" class="btn btn-success btn-lg">Sign Up</a>
+                <a href="#" class="btn btn-default btn-lg">Learn More</a>
+            </div>
+
+        </div>
+    </div>
+    {% endblock mast %}
     <script>
         $(document).ready(function(){
            window.alert("test"); 
