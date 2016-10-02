@@ -6,7 +6,7 @@ var router = express.Router();
 function getTotalHours(userID, xcall){
     Account.findOne({
         _id: userID
-    }, function(err, xcall) {
+    }, function(err, user, xcall) {
         var hours = 0;
         for (var event in user.events){
             var obj = user.events[event];
@@ -15,6 +15,14 @@ function getTotalHours(userID, xcall){
         xcall(hours);
     });
 };
+
+function getAttendedEvents (userId, xcall){
+    Account.findOne({_id: userId}, function(err, user, xcall) {
+        xcall(user.events);
+    })
+
+}
+
 
 router.get('/', function(req, res) {
     res.render('index', {
@@ -80,4 +88,6 @@ router.get('/user/:id', function(req, res) {
         res.render('user', { account: user });
     });
 })
+
+
 module.exports = router;
