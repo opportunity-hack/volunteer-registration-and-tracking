@@ -2,8 +2,8 @@
 ##Volunteer and Event Management Databse
 
 Uses:
-+node.js
-+express.js
-+passport.js
-+nunjucks
-+mongoose
+1. node.js
+2. express.js
+3. passport.js
+4. nunjucks
+5. mongoose
