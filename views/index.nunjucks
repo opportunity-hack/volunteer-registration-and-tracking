@@ -1,5 +1,7 @@
 {% extends "parent.nunjucks" %}
 {% block title %} {{title}} {% endblock %}
 {% block content %}
+{% if(user) %}
 <p>{{user}}</p>
+{% endif %}
 {% endblock %}
