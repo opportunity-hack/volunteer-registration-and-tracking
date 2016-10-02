@@ -9,7 +9,6 @@ var Event = new Schema({
     dates: Schema.Types.Mixed, //array of objects containing startDate and endDate
     location: String,
     description: String,
-    title: String,
     minLevel: Number,
     numAttendees: Number,
     training: Boolean
