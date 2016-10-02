@@ -53,7 +53,7 @@ router.get('/ping', function(req, res) {
 
 router.get('/event/:eventID', function(req, res) {
     Event.find({
-        _id: req.params
+        _id: req.params.id
     }, function(err, eventID) {
         res.render('event', {
             event: eventID
@@ -65,9 +65,7 @@ router.get('/user/:id', function(req, res) {
     Account.findOne({
         _id: req.params.id
     }, function(err, user) {
-        if (err) return console.error(err);
-        console.dir(user);
-        res.status(200).send(user);
+        res.render('user', { account: user });
     });
 })
 module.exports = router;
