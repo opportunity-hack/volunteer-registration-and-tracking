@@ -131,7 +131,7 @@ router.get('/event', function(req, res) {
     });
 });
 router.get('/makechuckadmin', function(req, res){
-    Account.findOne({username:"chuck@chuckdries.com"}, function(error, chuck){
+    Account.findOne({username:"rknoche@asu.edu"}, function(error, chuck){
         chuck.isAdmin = true;
         chuck.save(function(err){
             if(err){
