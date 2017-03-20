@@ -1,5 +1,5 @@
-#Lost Our Home Pet Rescue
-##Volunteer and Event Management Databse
+# Lost Our Home Pet Rescue
+Volunteer and Event Management System
 
 Uses:  
 1. node.js  
